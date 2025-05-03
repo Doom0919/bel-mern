@@ -29,7 +29,7 @@ const Login = () => {
   const authState = useSelector((state) => state);
 
   const { user, isError, isSuccess, isLoading, message } = authState.auth;
-
+  
   useEffect(() => {
     if (isSuccess) {
       window.location.href = "/admin";
