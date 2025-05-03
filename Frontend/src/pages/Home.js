@@ -232,7 +232,7 @@ const Home = () => {
                       </div>
                       <div className="product-image">
                         <img
-                          src={item?.images[0]?.url}
+                          src={item?.images?.[0]?.url || "path/to/default/image.jpg"}
                           //className="img-fluid d"
                           alt="product image"
                           height={"250px"}
@@ -240,7 +240,7 @@ const Home = () => {
                           onClick={() => navigate("/product/" + item?._id)}
                         />
                         <img
-                          src={item?.images[0]?.url}
+                          src={item?.images?.[0]?.url || "path/to/default/image.jpg"}
                           //className="img-fluid d"
                           alt="product image"
                           height={"250px"}
@@ -403,7 +403,7 @@ const Home = () => {
                       </div>
                       <div className="product-image">
                         <img
-                          src={item?.images[0].url}
+                          src={item?.images?.[0]?.url || "path/to/default/image.jpg"}
                           // className="img-fluid d"
                           alt="product image"
                           height={"250px"}
@@ -411,7 +411,7 @@ const Home = () => {
                           onClick={() => navigate("/product/" + item?._id)}
                         />
                         <img
-                          src={item?.images[0].url}
+                          src={item?.images?.[0]?.url || "path/to/default/image.jpg"}
                           // className="img-fluid d"
                           alt="product image"
                           height={"250px"}
@@ -490,34 +490,6 @@ const Home = () => {
               </Marquee>
             </div>
           </div>
-        </div>
-      </Container>
-
-      <Container class1="blog-wrapper py-5 home-wrapper-2">
-        <div className="row">
-          <div className="col-12">
-            <h3 className="section-heading">Our Latest Blogs</h3>
-          </div>
-        </div>
-        <div className="row">
-          {blogState &&
-            blogState?.map((item, index) => {
-              if (index < 4) {
-                return (
-                  <div className="col-3 " key={index}>
-                    <BlogCard
-                      id={item?._id}
-                      title={item?.title}
-                      description={item?.description}
-                      image={item?.images[0]?.url}
-                      date={moment(item?.createdAt).format(
-                        "MMMM Do YYYY, h:mm a"
-                      )}
-                    />
-                  </div>
-                );
-              }
-            })}
         </div>
       </Container>
     </>

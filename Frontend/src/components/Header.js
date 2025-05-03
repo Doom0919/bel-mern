@@ -11,7 +11,7 @@ import { Typeahead } from "react-bootstrap-typeahead";
 import "react-bootstrap-typeahead/css/Typeahead.css";
 import { getAProduct } from "../features/products/productSlilce";
 import { getUserCart } from "../features/user/userSlice";
-
+import logo from './image.png';
 const Header = () => {
   const dispatch = useDispatch();
   const cartState = useSelector((state) => state?.auth?.cartProducts);
@@ -62,176 +62,143 @@ const Header = () => {
   };
   return (
     <>
-      <header className="header-top-strip py-3">
-        <div className="container-xxl">
-          <div className="row">
-            <div className="col-6">
-              <p className="text-white mb-0">Free Shipping Over Rs.100</p>
-            </div>
-            <div className="col-6">
-              <p className="text-end text-white mb-0">
-                Hotline:
-                <a className="text-white" href="tel:+91 8264954234">
-                  +91 8264954234
-                </a>
-              </p>
+       <div
+  className="header"
+  style={{
+    display: 'flex',
+    justifyContent: 'flex-start',
+    padding: '0',
+    width: '100%',
+    margin: '0',
+    backgroundColor: '#14B6E7',
+  
+  }}
+>
+  <Link className="text-white" to="/">
+    <img
+      src={logo}
+      alt="logo"
+      className="img-fluid"
+      style={{ width: '180px' , alignItems: "center" , marginTop : '15px'}}
+      
+    />
+  </Link>
+
+  <div className="header-upper">
+    <header className="header-upper py-3" style={{ backgroundColor: '#14B6E7' ,  width: '1400px'}}>
+      <div className="container-xxl">
+        <div className="row align-items-center" >
+          <div className="col-2"></div>
+
+          <div className="col-5">
+            <div className="input-group" style={{
+              width: '600px',
+            }}>
+              <Typeahead style={{ width: '300px ' }}
+                id="pagination-example"
+                onPaginate={() => console.log('Results paginated')}
+                onChange={(selected) => {
+                  navigate(`/product/${selected[0]?.prod}`);
+                  dispatch(getAProduct(selected[0]?.prod));
+                }}
+                options={productOpt}
+                paginate={paginate}
+                labelKey={'name'}
+                placeholder="Search for Products here"
+              />
+              <span className="input-group-text p-3" id="basic-addon2">
+                <BsSearch className="fs-6" />
+              </span>
             </div>
           </div>
-        </div>
-      </header>
-      <header className="header-upper py-3">
-        <div className="container-xxl">
-          <div className="row align-items-center">
-            <div className="col-2">
-              <h2>
-                <Link className="text-white" to="/ ">
-                  Cart Corner
+
+          <div className="col-5">
+            <div className="header-upper-links d-flex align-items-center justify-content-between gap-3">
+              <div>
+                {/* Compare хэсэг идэвхгүй */}
+              </div>
+
+              <div>
+                <Link to="/cart" className="d-flex align-items-center gap-2 text-white">
+                  <img src={cart} alt="cart" />
+                  <div className="d-flex flex-column gap-1">
+                    <span className="badge bg-white text-dark">
+                      {cartState?.length ? cartState.length : 0}
+                    </span>
+                    <p className="mb-0"></p>
+                  </div>
                 </Link>
-              </h2>
-            </div>
-            <div className="col-5">
-              <div className="input-group">
-                <Typeahead
-                  id="pagination-example"
-                  onPaginate={() => console.log("Results paginated")}
-                  onChange={(selected) => {
-                    navigate(`/product/${selected[0]?.prod}`);
-                    dispatch(getAProduct(selected[0]?.prod));
-                  }}
-                  options={productOpt}
-                  paginate={paginate}
-                  labelKey={"name"}
-                  placeholder="Search for Products here"
-                />
-                <span className="input-group-text p-3" id="basic-addon2">
-                  <BsSearch className="fs-6" />
-                </span>
               </div>
-            </div>
-            <div className="col-5">
-              <div className="header-upper-links d-flex align-items-center justify-content-between">
-                <div>
-                  {/* <Link
-                    to="/compare-product"
-                    className="d-flex align-items-center gap-10 text-white"
-                  >
-                    <img src={compare} alt="compare" />
-                    <p className="mb-0">
-                      Compare <br /> Products
-                    </p>
-                  </Link> */}
-                </div>
-                <div>
-                  <Link
-                    to="/wishlist"
-                    className="d-flex align-items-center gap-10 text-white"
-                  >
-                    <img src={wishlist} alt="wishlist" />
-                    <p className="mb-0">
-                      Favourite <br /> wishlist
-                    </p>
-                  </Link>
-                </div>
-                <div>
-                  <Link
-                    to={authState?.user === null ? "/login" : "my-profile"}
-                    className="d-flex align-items-center gap-10 text-white"
-                  >
-                    <img src={user} alt="user" />
-                    {authState?.user === null ? (
-                      <p className="mb-0">
-                        Log in <br /> My Account
-                      </p>
-                    ) : (
-                      <p className="mb-0">
-                        Welcome {authState?.user?.firstname}
-                      </p>
-                    )}
-                  </Link>
-                </div>
-                <div>
-                  <Link
-                    to="/cart"
-                    className="d-flex align-items-center gap-10 text-white"
-                  >
-                    <img src={cart} alt="cart" />
-                    <div className="d-flex flex-column gap-10">
-                      <span className="badge bg-white text-dark">
-                        {cartState?.length ? cartState?.length : 0}
-                      </span>
-                      <p className="mb-0">
-                        Rs. {!cartState?.length ? 0 : total ? total : 0}
-                      </p>
-                    </div>
-                  </Link>
-                </div>
+
+              <div>
+                <Link to="/wishlist" className="d-flex align-items-center gap-2 text-white">
+                  <img src={wishlist} alt="wishlist" />
+                  <p className="mb-0">Favourite</p>
+                </Link>
+              </div>
+
+              <div>
+                <Link
+                  to={authState?.user === null ? '/login' : 'my-profile'}
+                  className="d-flex align-items-center gap-2 text-white"
+                >
+                  <img src={user} alt="user" />
+                  {authState?.user === null ? (
+                    <p className="mb-0">Log in</p>
+                  ) : (
+                    <p className="mb-0">Welcome {authState?.user?.firstname}</p>
+                  )}
+                </Link>
               </div>
             </div>
           </div>
         </div>
-      </header>
-      <header className="header-bottom py-3">
-        <div className="container-xxl">
-          <div className="row">
-            <div className="col-12">
-              <div className="menu-bottom d-flex align-items-center gap-30">
-                <div>
-                  <div className="dropdown">
+      </div>
+    </header>
+
+    <header className="header-bottom py-3" style={{ backgroundColor: '#14B6E7'  }}>
+      <div className="container-xxl">
+        <div className="row">
+          <div className="col-12">
+            <div className="menu-bottom d-flex align-items-center gap-3">
+              <div className="menu-links" style={{  marginLeft : '50px'}}>
+                <div className="d-flex align-items-center gap-3">
+                  <NavLink to="/" className="text-white px-3 py-2 rounded text-uppercase">
+                    Home
+                  </NavLink>
+
+                  {productState &&
+                    [...new Set(productState.map(item => item?.category).filter(Boolean))]
+                      .reverse()
+                      .map((category, index) => (
+                        <Link
+                          key={index}
+                          className="text-white px-3 py-2 rounded text-uppercase"
+                          to={`/${category}`}
+                        >
+                          {category}
+                        </Link>
+                      ))}
+
+                  {authState?.user !== null && (
                     <button
-                      className="btn btn-secondary dropdown-toggle bg-transparent border-0 gap-15 d-flex align-items-center"
+                      className="border-0 text-white px-3 py-2 bg-dark rounded text-uppercase"
                       type="button"
-                      id="dropdownMenuButton1"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
+                      onClick={handleLogout}
                     >
-                      <img src={menu} alt="" />
-                      <span className="me-5 d-inline-block">
-                        Shop Categories
-                      </span>
+                      LogOut
                     </button>
-                    <ul
-                      className="dropdown-menu"
-                      aria-labelledby="dropdownMenuButton1"
-                    >
-                      {productState &&
-                        productState.map((item, index) => {
-                          return (
-                            <li key={index}>
-                              <Link className="dropdown-item text-white" to="">
-                                {item?.category}
-                              </Link>
-                            </li>
-                          );
-                        })}
-                    </ul>
-                  </div>
-                </div>
-                <div className="menu-links">
-                  <div className="d-flex align-items-center gap-15">
-                    <NavLink to="/">Home</NavLink>
-                    <NavLink to="/product">Our Store</NavLink>
-                    <NavLink to="/my-orders">My Orders</NavLink>
-                    <NavLink to="/blogs">Blogs</NavLink>
-                    <NavLink to="/contact">Contact</NavLink>
-                    {authState?.user !== null ? (
-                      <button
-                        className="border border-0 bg-trasparent text-white text-uppercase"
-                        type="button"
-                        style={{ backgroundColor: "#232f3e" }}
-                        onClick={handleLogout}
-                      >
-                        LogOut
-                      </button>
-                    ) : (
-                      ""
-                    )}
-                  </div>
+                  )}
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </header>
+      </div>
+    </header>
+  </div>
+</div>
+
     </>
   );
 };
