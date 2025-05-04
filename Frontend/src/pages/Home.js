@@ -222,12 +222,12 @@ const Home = () => {
             <h3 className="section-heading">Онцлох бараа</h3>
           </div>
           {productState &&
-            productState?.map((item, index) => {
+            productState.map((item, index) => {
               if (item.tags === "featured") {
                 return (
                   <div key={index} className={"col-3"} style={{ marginBottom: "20px" }}>
                     <div className="product-card position-relative" style={{ border: "1px solid #14B6E7" }}>
-                      <div className="wishlist-icon position-absolute" >
+                      <div className="wishlist-icon position-absolute">
                         <button
                           className="border-0 bg-transparent"
                           onClick={(e) => addToWish(item?._id)}
@@ -241,16 +241,14 @@ const Home = () => {
                       </div>
                       <div className="product-image">
                         <img
-                          src={item?.images?.[0]?.url || "path/to/default/image.jpg"}
-                          // className="img-fluid d"
+                          src={item?.images?.[0]?.url || "path/to/default/image.jpg"} // Fallback to a default image
                           alt="product image"
                           height={"250px"}
                           width={"100%"}
                           onClick={() => navigate("/product/" + item?._id)}
                         />
                         <img
-                          src={item?.images?.[0]?.url || "path/to/default/image.jpg"}
-                          // className="img-fluid d"
+                          src={item?.images?.[0]?.url || "path/to/default/image.jpg"} // Fallback to a default image
                           alt="product image"
                           height={"250px"}
                           width={"100%"}
@@ -265,7 +263,7 @@ const Home = () => {
                         <ReactStars
                           count={5}
                           size={24}
-                          value={item?.totalrating.toString()}
+                          value={item?.totalrating?.toString() || "0"}
                           edit={false}
                           activeColor="#ffd700"
                         />
@@ -350,16 +348,15 @@ const Home = () => {
           {productState &&
             productState?.map((item, index) => {
               if (item.tags === "special") {
-                //console.log(item?._id);
                 return (
                   <SpecialProduct
                     key={index}
                     id={item?._id}
                     title={item?.title}
                     brand={item?.brand}
-                    totalrating={item?.totalrating.toString()}
+                    totalrating={item?.totalrating?.toString() || "0"}
                     price={item?.price}
-                    img={item?.images[0].url}
+                    img={item?.images?.[0]?.url || "path/to/default/image.jpg"} // Fallback image
                     sold={item?.sold}
                     quantity={item?.quantity}
                   />
@@ -395,16 +392,14 @@ const Home = () => {
                       </div>
                       <div className="product-image">
                         <img
-                          src={item?.images?.[0]?.url || "path/to/default/image.jpg"}
-                          // className="img-fluid d"
+                          src={item?.images?.[0]?.url || "path/to/default/image.jpg"} // Fallback to a default image
                           alt="product image"
                           height={"250px"}
                           width={"100%"}
                           onClick={() => navigate("/product/" + item?._id)}
                         />
                         <img
-                          src={item?.images?.[0]?.url || "path/to/default/image.jpg"}
-                          // className="img-fluid d"
+                          src={item?.images?.[0]?.url || "path/to/default/image.jpg"} // Fallback to a default image
                           alt="product image"
                           height={"250px"}
                           width={"100%"}
