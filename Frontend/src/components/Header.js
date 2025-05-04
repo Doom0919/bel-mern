@@ -12,6 +12,7 @@ import "react-bootstrap-typeahead/css/Typeahead.css";
 import { getAProduct } from "../features/products/productSlilce";
 import { getUserCart } from "../features/user/userSlice";
 import logo from './image.png';
+import './Header.css' ;
 const Header = () => {
   const dispatch = useDispatch();
   const cartState = useSelector((state) => state?.auth?.cartProducts);
@@ -160,27 +161,33 @@ const Header = () => {
         <div className="row">
           <div className="col-12">
             <div className="menu-bottom d-flex align-items-center gap-3">
-              <div className="menu-links" style={{  marginLeft : '50px'}}>
+              <div className="menu-links" style={{ marginLeft: '50px' }}>
                 <div className="d-flex align-items-center gap-3">
-                  <NavLink to="/" className="text-black px-3 py-2 rounded text-uppercase" style={{color : 'black'}}>
+                  <NavLink
+                    to="/"
+                    className={({ isActive }) =>
+                      `text-black px-3 py-2 rounded text-uppercase ${isActive ? 'active-link' : ''}`
+                    }
+                    style={{ color: 'black' }}
+                  >
                     Home
                   </NavLink>
-
                   {productState &&
-                    [...new Set(productState.map(item => item?.category).filter(Boolean))]
+                    [...new Set(productState.map((item) => item?.category).filter(Boolean))]
                       .reverse()
                       .map((category, index) => (
-                        <Link
+                        <NavLink
                           key={index}
-                          className="text-black px-3 py-2 rounded text-uppercase "
-                          style={{color : 'black'}}
-                          to={`/${category}`}
+                          to={`/category/${category}`}
+                          className={({ isActive }) =>
+                            `text-black text-uppercase ${isActive ? 'active-link' : ''}`
+                          }
+                          style={{ color: 'black',
+                           }}
                         >
                           {category}
-                        </Link>
+                        </NavLink>
                       ))}
-
-               
                 </div>
               </div>
             </div>

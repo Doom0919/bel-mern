@@ -1,0 +1,58 @@
+/* General link styles */
+.menu-links .menu-link {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  /* Hover effect */
+  .menu-links .menu-link:hover {
+    color: white;
+    background-color: #14b6e7;
+    border-radius: 5px;
+    padding: 5px 10px;
+  }
+  
+  /* Active link styles */
+  .menu-links .active-link {
+    color: white;
+    background-color: #0a74da;
+    border-radius: 5px;
+    padding: 5px 10px;
+  }
+  
+  /* Add underline animation on hover */
+  .menu-links .menu-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background-color: #14b6e7;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+  
+  .menu-links .menu-link:hover::after {
+    width: 100%;
+  }
+
+/* Additional styles for menu-links container */
+.menu-links {
+    margin-left: 50px;
+}
+
+.menu-links .d-flex {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.menu-links .menu-link {
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
