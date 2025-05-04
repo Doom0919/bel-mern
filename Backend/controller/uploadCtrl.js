@@ -10,18 +10,22 @@ const uploadImages = asyncHandler(async (req, res) => {
     const uploader = (path) => cloudinaryUploadImg(path, "images");
     const urls = [];
     const files = req.files;
+
     for (const file of files) {
       const { path } = file;
-      const newpath = await uploader(path);
-      console.log(newpath);
+      const newpath = await uploader(path); // Upload to Cloudinary
+      console.log(newpath); // Debugging: Log the response from Cloudinary
       urls.push(newpath);
-      fs.unlinkSync(path);
+      fs.unlinkSync(path); // Delete the local file
     }
+
     const images = urls.map((file) => {
       return file;
     });
+
     res.json(images);
   } catch (error) {
+    console.error("Upload error:", error); // Log the error for debugging
     throw new Error(error);
   }
 });
