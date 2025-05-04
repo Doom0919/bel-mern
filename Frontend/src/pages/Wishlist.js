@@ -46,17 +46,17 @@ const Wishlist = () => {
                     <div className="wishlist-card-image">
                       <img
                         src={
-                          item?.images[0].url
+                          item?.images?.[0]?.url // Check if images exist and have a valid URL
                             ? item?.images[0].url
-                            : "images/watch.jpg"
+                            : "images/default-image.jpg" // Fallback to a default image
                         }
                         className="img-fluid w-100"
-                        alt="watch"
+                        alt="product"
                       />
                     </div>
                     <div className="py-3 px-3">
-                      <h5 className="title">{item?.title}</h5>
-                      <h6 className="price">Rs. {item?.price}</h6>
+                      <h5 className="title"> Нэр : {item?.title}</h5>
+                      <h6 className="price">Үнэ : {item?.price}</h6>
                     </div>
                   </div>
                 </div>

@@ -225,9 +225,9 @@ const Home = () => {
             productState?.map((item, index) => {
               if (item.tags === "featured") {
                 return (
-                  <div key={index} className={"col-3"}>
-                    <div className="product-card position-relative">
-                      <div className="wishlist-icon position-absolute">
+                  <div key={index} className={"col-3"} style={{ marginBottom: "20px" }}>
+                    <div className="product-card position-relative" style={{ border: "1px solid #14B6E7" }}>
+                      <div className="wishlist-icon position-absolute" >
                         <button
                           className="border-0 bg-transparent"
                           onClick={(e) => addToWish(item?._id)}
@@ -258,9 +258,9 @@ const Home = () => {
                         />
                       </div>
                       <div className="product-details">
-                        <h6 className="brand">{item?.brand}</h6>
+                        <h6 className="brand">Brand : {item?.brand}</h6>
                         <h5 className="product-title">
-                          {item?.title?.substr(0, 70) + "..."}
+                          Нэр : {item?.title?.substr(0, 70) + "..."}
                         </h5>
                         <ReactStars
                           count={5}
@@ -379,8 +379,8 @@ const Home = () => {
             productState?.map((item, index) => {
               if (item.tags === "popular") {
                 return (
-                  <div key={index} className={"col-3"}>
-                    <div className="product-card position-relative">
+                  <div key={index} className={"col-3"} >
+                    <div className="product-card position-relative"   style={{ marginBottom: "20px" , border: "1px solid #14B6E7"  }} >
                       <div className="wishlist-icon position-absolute">
                       <button
                                           className="border-0 bg-transparent"
