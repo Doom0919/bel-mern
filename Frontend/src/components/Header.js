@@ -180,15 +180,7 @@ const Header = () => {
                         </Link>
                       ))}
 
-                  {authState?.user !== null && (
-                    <button
-                      className="border-0 text-white px-3 py-2 bg-dark rounded text-uppercase"
-                      type="button"
-                      onClick={handleLogout}
-                    >
-                      LogOut
-                    </button>
-                  )}
+               
                 </div>
               </div>
             </div>

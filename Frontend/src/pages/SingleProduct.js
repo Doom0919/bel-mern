@@ -156,7 +156,7 @@ const SingleProduct = () => {
                 <h3 className="title"> Нэр  : {productState?.title}</h3>
               </div>
               <div className="border-bottom py-3">
-                <p className="price"> Үнэ {productState?.price}/-</p>
+                <p className="price"> Үнэ {productState?.price}₮</p>
                 <div className="d-flex align-items-center gap-10">
                   <ReactStars
                     count={5}
@@ -188,7 +188,7 @@ const SingleProduct = () => {
                 </div>
                 <div className="d-flex gap-10 align-items-center my-2">
                   <h3 className="product-heading">Tags :</h3>
-                  <p className="product-data">{productState?.tags}</p>
+                  <p className="product-data">{productState?.tags === 'popular'? ('Эрэлттэ') : (productState?.tags === 'special' ? ('Тусгай')  : ('Онцлох'))}</p>
                 </div>
                
                 {/* <div className="d-flex gap-10 flex-column mt-2 mb-3">
