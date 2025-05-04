@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import {
-  AiOutlineDashboard,
+  // AiOutlineDashboard,
   AiOutlineShoppingCart,
   AiOutlineUser,
   AiOutlineBgColors,
@@ -49,11 +49,11 @@ const MainLayout = () => {
             }
           }}
           items={[
-            {
-              key: "",
-              icon: <AiOutlineDashboard className="fs-4" />,
-              label: "Dashboard",
-            },
+            // {
+            //   key: "",
+            //   icon: <AiOutlineDashboard className="fs-4" />,
+            //   label: "Dashboard",
+            // },
             {
               key: "customers",
               icon: <AiOutlineUser className="fs-4" />,
@@ -111,50 +111,50 @@ const MainLayout = () => {
               icon: <FaClipboardList className="fs-4" />,
               label: "Orders",
             },
-            {
-              key: "marketing",
-              icon: <RiCouponLine className="fs-4" />,
-              label: "Marketing",
-              children: [
-                {
-                  key: "coupon",
-                  icon: <ImBlog className="fs-4" />,
-                  label: "Add Coupon",
-                },
-                {
-                  key: "coupon-list",
-                  icon: <RiCouponLine className="fs-4" />,
-                  label: "Coupon List",
-                },
-              ],
-            },
-            {
-              key: "blogs",
-              icon: <FaBloggerB className="fs-4" />,
-              label: "Blogs",
-              children: [
-                {
-                  key: "blog",
-                  icon: <ImBlog className="fs-4" />,
-                  label: "Add Blog",
-                },
-                {
-                  key: "blog-list",
-                  icon: <FaBloggerB className="fs-4" />,
-                  label: "Blog List",
-                },
-                {
-                  key: "blog-category",
-                  icon: <ImBlog className="fs-4" />,
-                  label: "Add Blog Category",
-                },
-                {
-                  key: "blog-category-list",
-                  icon: <FaBloggerB className="fs-4" />,
-                  label: "Blog Category List",
-                },
-              ],
-            },
+            // {
+            //   key: "marketing",
+            //   icon: <RiCouponLine className="fs-4" />,
+            //   label: "Marketing",
+            //   children: [
+            //     {
+            //       key: "coupon",
+            //       icon: <ImBlog className="fs-4" />,
+            //       label: "Add Coupon",
+            //     },
+            //     {
+            //       key: "coupon-list",
+            //       icon: <RiCouponLine className="fs-4" />,
+            //       label: "Coupon List",
+            //     },
+            //   ],
+            // },
+            // {
+            //   key: "blogs",
+            //   icon: <FaBloggerB className="fs-4" />,
+            //   label: "Blogs",
+            //   children: [
+            //     {
+            //       key: "blog",
+            //       icon: <ImBlog className="fs-4" />,
+            //       label: "Add Blog",
+            //     },
+            //     {
+            //       key: "blog-list",
+            //       icon: <FaBloggerB className="fs-4" />,
+            //       label: "Blog List",
+            //     },
+            //     {
+            //       key: "blog-category",
+            //       icon: <ImBlog className="fs-4" />,
+            //       label: "Add Blog Category",
+            //     },
+            //     {
+            //       key: "blog-category-list",
+            //       icon: <FaBloggerB className="fs-4" />,
+            //       label: "Blog Category List",
+            //     },
+            //   ],
+            // },
             {
               key: "enquiries",
               icon: <FaClipboardList className="fs-4" />,
@@ -189,7 +189,7 @@ const MainLayout = () => {
                 <img
                   width={32}
                   height={32}
-                  src="https://stroyka-admin.html.themeforest.scompiler.ru/variants/ltr/images/customers/customer-4-64x64.jpg"
+                  src="https://preview.redd.it/u9qtyhy2i4ca1.jpg?width=1080&crop=smart&auto=webp&s=c7613081de763c64db7e5d21b72439811943a17d"
                   alt=""
                 />
               </div>
@@ -197,10 +197,10 @@ const MainLayout = () => {
                 role="button"
                 id="dropdownMenuLink"
                 data-bs-toggle="dropdown"
-                aria-expanded="false"
+                aria-expanded="false" 
               >
-                <h5 className="mb-0">Dev</h5>
-                <p className="mb-0">devjariwala8444@gmail.com</p>
+                <h5 className="mb-0">BEL ADMIN</h5>
+                <p className="mb-0">enhjin0830@gmail.com</p>
               </div>
               <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <li>

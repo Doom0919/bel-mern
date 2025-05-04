@@ -47,6 +47,8 @@ function App() {
             </PrivateRoutes>
           }
         >
+          <Route path="/admin" element={<Dashboard />} />
+
           <Route index element={<Dashboard />} />
           <Route path="enquiries" element={<Enquiries />} />
           <Route path="enquiries/:id" element={<ViewEnq />} />

@@ -35,6 +35,24 @@ const deleteImages = asyncHandler(async (req, res) => {
   }
 });
 
+
+// const deleteImages = async (req, res) => {
+//   try {
+//     const filename = req.params.id;
+//     const filepath = path.join(__dirname, `../public/images/products/${filename}`);
+
+//     if (fs.existsSync(filepath)) {
+//       fs.unlinkSync(filepath);
+//       res.status(200).json({ message: "Image deleted successfully" });
+//     } else {
+//       res.status(404).json({ error: "Image not found" });
+//     }
+//   } catch (error) {
+//     console.error("Image deletion error:", error);
+//     res.status(500).json({ error: "Failed to delete image" });
+//   }
+// };
+
 module.exports = {
   uploadImages,
   deleteImages,
