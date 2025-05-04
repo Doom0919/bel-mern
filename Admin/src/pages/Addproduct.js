@@ -282,8 +282,8 @@ const Addproduct = () => {
               Select Category
             </option>
             <option value="featured">Онцлох</option>
-            <option value="popular">Тусгай</option>
-            <option value="special">Эрэлттэй</option>
+            <option value="special">Тусгай</option>
+            <option value="popular">Эрэлттэй</option>
           </select>
           <div className="error">
             {formik.touched.tags && formik.errors.tags}
