@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import { BsSearch } from "react-icons/bs";
 import compare from "../images/compare.svg";
-import wishlist from "../images/wishlist.svg";
+import wishlist from "../images/wish.svg";
 import user from "../images/user.svg";
 import cart from "../images/cart.svg";
 import menu from "../images/menu.svg";
@@ -80,21 +80,20 @@ const Header = () => {
       alt="logo"
       className="img-fluid"
       style={{ width: '180px' , alignItems: "center" , marginTop : '15px'}}
-      
     />
   </Link>
 
   <div className="header-upper">
-    <header className="header-upper py-3" style={{ backgroundColor: '#14B6E7' ,  width: '1400px'}}>
+    <header className="header-upper py-3" style={{ backgroundColor: '#14B6E7' ,  width: '1400px', color: 'black' }}>
       <div className="container-xxl">
         <div className="row align-items-center" >
-          <div className="col-2"></div>
-
-          <div className="col-5">
+          <div className="col-5" style={{ width: '700px' }}>
             <div className="input-group" style={{
-              width: '600px',
+              width: '700px',
+              marginRight: '100px',
+             
             }}>
-              <Typeahead style={{ width: '300px ' }}
+              <Typeahead style={{ width: '500px '}}
                 id="pagination-example"
                 onPaginate={() => console.log('Results paginated')}
                 onChange={(selected) => {
@@ -106,7 +105,7 @@ const Header = () => {
                 labelKey={'name'}
                 placeholder="Search for Products here"
               />
-              <span className="input-group-text p-3" id="basic-addon2">
+              <span className="input-group-text p-3" id="basic-addon2" style={{ backgroundColor: 'white' }}>
                 <BsSearch className="fs-6" />
               </span>
             </div>
@@ -119,8 +118,8 @@ const Header = () => {
               </div>
 
               <div>
-                <Link to="/cart" className="d-flex align-items-center gap-2 text-white">
-                  <img src={cart} alt="cart" />
+                <Link to="/cart" className="d-flex align-items-center gap-2 text-black"  style={{color : 'black'}} >
+                  <img src={cart} alt="cart" style={{width : '50px'}}/>
                   <div className="d-flex flex-column gap-1">
                     <span className="badge bg-white text-dark">
                       {cartState?.length ? cartState.length : 0}
@@ -131,8 +130,8 @@ const Header = () => {
               </div>
 
               <div>
-                <Link to="/wishlist" className="d-flex align-items-center gap-2 text-white">
-                  <img src={wishlist} alt="wishlist" />
+                <Link to="/wishlist" className="d-flex align-items-center gap-2 text-black"style={{color : 'black'}}  >
+                  <img src={wishlist} alt="wishlist" style={{ width : '40px'}} />
                   <p className="mb-0">Favourite</p>
                 </Link>
               </div>
@@ -142,11 +141,11 @@ const Header = () => {
                   to={authState?.user === null ? '/login' : 'my-profile'}
                   className="d-flex align-items-center gap-2 text-white"
                 >
-                  <img src={user} alt="user" />
+                  <img src={user} alt="user" style={{width :'40px'}}/>
                   {authState?.user === null ? (
-                    <p className="mb-0">Log in</p>
+                    <p className="mb-0" style={{color : 'black'}} >Log in</p>
                   ) : (
-                    <p className="mb-0">Welcome {authState?.user?.firstname}</p>
+                    <p className="mb-0" style={{color : 'black'}} >Welcome {authState?.user?.firstname}</p>
                   )}
                 </Link>
               </div>
@@ -163,7 +162,7 @@ const Header = () => {
             <div className="menu-bottom d-flex align-items-center gap-3">
               <div className="menu-links" style={{  marginLeft : '50px'}}>
                 <div className="d-flex align-items-center gap-3">
-                  <NavLink to="/" className="text-white px-3 py-2 rounded text-uppercase">
+                  <NavLink to="/" className="text-black px-3 py-2 rounded text-uppercase" style={{color : 'black'}}>
                     Home
                   </NavLink>
 
@@ -173,7 +172,8 @@ const Header = () => {
                       .map((category, index) => (
                         <Link
                           key={index}
-                          className="text-white px-3 py-2 rounded text-uppercase"
+                          className="text-black px-3 py-2 rounded text-uppercase "
+                          style={{color : 'black'}}
                           to={`/${category}`}
                         >
                           {category}

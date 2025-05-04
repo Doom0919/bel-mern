@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Marquee from "react-fast-marquee";
 import BlogCard from "../components/BlogCard";
@@ -8,6 +8,7 @@ import Container from "../components/Container";
 import { services } from "../utils/Data";
 import prodcompare from "../images/prodcompare.svg";
 import wish from "../images/wish.svg";
+import favorite from "../images/favorite.svg";
 import wishlist from "../images/wishlist.svg";
 import watch from "../images/watch.jpg";
 import watch2 from "../images/watch-1.avif";
@@ -20,8 +21,10 @@ import { getAllProducts } from "../features/products/productSlilce";
 import ReactStars from "react-rating-stars-component";
 import { addToWishlist } from "../features/products/productSlilce";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import mainBanner from "../images/main-banner-1.jpg";
 
 const Home = () => {
+  const [wishlist, setWishlist] = useState([]); // State to track wishlist items
   const blogState = useSelector((state) => state?.blog?.blog);
   const productState = useSelector((state) => state?.product?.product);
 
@@ -41,9 +44,14 @@ const Home = () => {
   };
 
   const addToWish = (id) => {
-    //alert(id);
-    dispatch(addToWishlist(id));
+    if (wishlist.includes(id)) {
+      setWishlist(wishlist.filter((item) => item !== id)); // Remove from wishlist
+    } else {
+      setWishlist([...wishlist, id]); // Add to wishlist
+      dispatch(addToWishlist(id)); // Dispatch action
+    }
   };
+
   return (
     <>
       <Container class1="home-wrapper-1 py-5">
@@ -51,16 +59,16 @@ const Home = () => {
           <div className="col-6">
             <div className="main-banner position-relative ">
               <img
-                src="images/main-banner-1.jpg"
+                src={mainBanner}
                 className="img-fluid rounded-3"
-                alt="main banner"
+                alt="main-banner"
               />
-              <div className="main-banner-content position-absolute">
+              {/* <div className="main-banner-content position-absolute">
                 <h4>SUPERCHARGED FOR PROS.</h4>
                 <h5>iPad S13+ Pro.</h5>
                 <p>From Rs. 81,900.00 </p>
                 <Link className="button">BUY NOW</Link>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="col-6">
@@ -72,10 +80,10 @@ const Home = () => {
                   alt="main banner"
                 />
                 <div className="small-banner-content position-absolute">
-                  <h4>Best Sake</h4>
+                  <h4>Шинэ ирэлт</h4>
                   <h5>MacBook Pro.</h5>
                   <p>
-                    From Rs. 1,29,900.00 <br />
+                  Үнэ : 1,290,900₮ <br />
                   </p>
                 </div>
               </div>
@@ -86,10 +94,10 @@ const Home = () => {
                   alt="main banner"
                 />
                 <div className="small-banner-content position-absolute">
-                  <h4>NEW ARRIVAL</h4>
+                  <h4>Шинэ ирэлт</h4>
                   <h5>But IPad Air</h5>
                   <p>
-                    From Rs. 21,625.00 <br />
+                  Үнэ : 210,625₮ <br />
                   </p>
                 </div>
               </div>
@@ -100,10 +108,10 @@ const Home = () => {
                   alt="main banner"
                 />
                 <div className="small-banner-content position-absolute">
-                  <h4>NEW ARRIVAL</h4>
+                  <h4>Шинэ ирэлт</h4>
                   <h5>But IPad Air</h5>
                   <p>
-                    From Rs. 41,900.00 <br />
+                  Үнэ : 410,900₮ <br />
                   </p>
                 </div>
               </div>
@@ -114,10 +122,10 @@ const Home = () => {
                   alt="main banner"
                 />
                 <div className="small-banner-content position-absolute">
-                  <h4>NEW ARRIVAL</h4>
+                  <h4>Шинэ ирэлт</h4>
                   <h5>But Headphone</h5>
                   <p>
-                    From Rs. 41,000.00 <br />
+                    Үнэ : 41,000₮ <br />
                   </p>
                 </div>
               </div>
@@ -211,7 +219,7 @@ const Home = () => {
       <Container class1="featured-wrapper py-5 home-wrapper-2">
         <div className="row">
           <div className="col-12">
-            <h3 className="section-heading">Featured Collection</h3>
+            <h3 className="section-heading">Онцлох бараа</h3>
           </div>
           {productState &&
             productState?.map((item, index) => {
@@ -220,31 +228,32 @@ const Home = () => {
                   <div key={index} className={"col-3"}>
                     <div className="product-card position-relative">
                       <div className="wishlist-icon position-absolute">
-                        <button className="border-0 bg-transparent">
-                          <img
-                            src={wish}
-                            alt="wishlist"
-                            onClick={(e) => {
-                              addToWish(item?._id);
-                            }}
-                          />
+                        <button
+                          className="border-0 bg-transparent"
+                          onClick={(e) => addToWish(item?._id)}
+                        >
+                          {wishlist.includes(item?._id) ? (
+                            <AiFillHeart className="fs-5 me-1" />
+                          ) : (
+                            <AiOutlineHeart className="fs-5 me-1" />
+                          )}
                         </button>
                       </div>
                       <div className="product-image">
                         <img
                           src={item?.images?.[0]?.url || "path/to/default/image.jpg"}
-                          //className="img-fluid d"
+                          // className="img-fluid d"
                           alt="product image"
                           height={"250px"}
-                          width={"260px"}
+                          width={"100%"}
                           onClick={() => navigate("/product/" + item?._id)}
                         />
                         <img
                           src={item?.images?.[0]?.url || "path/to/default/image.jpg"}
-                          //className="img-fluid d"
+                          // className="img-fluid d"
                           alt="product image"
                           height={"250px"}
-                          width={"260px"}
+                          width={"100%"}
                           onClick={() => navigate("/product/" + item?._id)}
                         />
                       </div>
@@ -260,25 +269,7 @@ const Home = () => {
                           edit={false}
                           activeColor="#ffd700"
                         />
-
-                        <p className="price">Rs. {item?.price}</p>
-                      </div>
-                      <div className="action-bar position-absolute">
-                        <div className="d-flex flex-column gap-15">
-                          {/* <button className="border-0 bg-transparent">
-                            <img src={prodcompare} alt="compare" />
-                          </button>
-                          <button className="border-0 bg-transparent">
-                            <img
-                              onClick={() => navigate("/product/" + item?._id)}
-                              src={view}
-                              alt="view"
-                            />
-                          </button> */}
-                          {/* <button className="border-0 bg-transparent">
-                            <img src={addcart} alt="addcart" />
-                          </button> */}
-                        </div>
+                        <p className="price">Үнэ : {item?.price}</p>
                       </div>
                     </div>
                   </div>
@@ -288,7 +279,7 @@ const Home = () => {
         </div>
       </Container>
 
-      <Container class1="famous-wrapper py-5 home-wrapper-2">
+      {/* <Container class1="famous-wrapper py-5 home-wrapper-2">
         <div className="row">
           <div className="col-3">
             <div className="famous-card position-relative">
@@ -347,12 +338,12 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </Container>
-
+      </Container> */}
+    
       <Container class1="special-wrapper py-5 home-wrapper-2">
         <div className="row">
           <div className="col-12">
-            <h3 className="section-heading">Special Products</h3>
+            <h3 className="section-heading">Тусгай бараа</h3>
           </div>
         </div>
         <div className="row">
@@ -380,7 +371,7 @@ const Home = () => {
       <Container class1="popular-wrapper py-5 home-wrapper-2">
         <div className="row">
           <div className="col-12">
-            <h3 className="section-heading">Our Popular Products</h3>
+            <h3 className="section-heading">Эрэлттэй бараа</h3>
           </div>
         </div>
         <div className="row">
@@ -391,15 +382,16 @@ const Home = () => {
                   <div key={index} className={"col-3"}>
                     <div className="product-card position-relative">
                       <div className="wishlist-icon position-absolute">
-                        <button className="border-0 bg-transparent">
-                          <img
-                            src={wish}
-                            alt="wishlist"
-                            onClick={(e) => {
-                              addToWish(item?._id);
-                            }}
-                          />
-                        </button>
+                      <button
+                                          className="border-0 bg-transparent"
+                                          onClick={(e) => addToWish(item?._id)}
+                                        >
+                                          {wishlist.includes(item?._id) ? (
+                                            <AiFillHeart className="fs-5 me-1" />
+                                          ) : (
+                                            <AiOutlineHeart className="fs-5 me-1" />
+                                          )}
+                          </button>
                       </div>
                       <div className="product-image">
                         <img
