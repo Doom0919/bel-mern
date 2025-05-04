@@ -213,6 +213,7 @@ const SingleProduct = () => {
                     <h3 className="product-heading">Color :</h3>
                     <Color
                       setColor={setColor}
+                      selectedColor={color}
                       colorData={productState?.color}
                     />
                   </div>

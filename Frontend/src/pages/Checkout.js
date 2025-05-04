@@ -15,13 +15,13 @@ import {
 } from "../features/user/userSlice";
 
 let shippingSchema = yup.object({
-  firstname: yup.string().required("First Name is Required"),
-  lastname: yup.string().required("Last Name is Required"),
-  address: yup.string().required("Address Details are Required"),
-  state: yup.string().required("S tate is Required"),
-  city: yup.string().required("city is Required"),
-  country: yup.string().required("country is Required"),
-  pincode: yup.number("Pincode No is Required").required().positive().integer(),
+  firstname: yup.string().required("Овог is Required"),
+  lastname: yup.string().required("Нэр is Required"),
+  address: yup.string().required("Хаяг тодорхой are Required"),
+  state: yup.string().required("Төлөв is Required"),
+  city: yup.string().required("Хаяг тоот is Required"),
+  country: yup.string().required("Улс is Required"),
+  pincode: yup.number("Холбоо барих дугаар is Required").required().positive().integer(),
 });
 
 const Checkout = () => {
@@ -177,12 +177,12 @@ const Checkout = () => {
         dispatch(resetState());
       },
       prefill: {
-        name: "Dev Corner",
-        email: "devcorner@example.com",
-        contact: "9999999999",
+        name: "Buyka",
+        email: "boldoobuyka@example.com",
+        contact: "80553466",
       },
       notes: {
-        address: "developer's cornor office",
+        address: "MХТС-ийн 229 тоот",
       },
       theme: {
         color: "#61dafb",
@@ -198,42 +198,8 @@ const Checkout = () => {
         <div className="row">
           <div className="col-7">
             <div className="checkout-left-data">
-              <h3 className="website-name">Cart Corner</h3>
-              <nav
-                style={{ "--bs-breadcrumb-divider": ">" }}
-                aria-label="breadcrumb"
-              >
-                <ol className="breadcrumb">
-                  <li className="breadcrumb-item">
-                    <Link className="text-dark total-price" to="/cart">
-                      Cart
-                    </Link>
-                  </li>
-                  &nbsp; /&nbsp;
-                  <li
-                    className="breadcrumb-ite total-price active"
-                    aria-current="page"
-                  >
-                    Information
-                  </li>
-                  &nbsp; /
-                  <li className="breadcrumb-item total-price active">
-                    Shipping
-                  </li>
-                  &nbsp; /
-                  <li
-                    className="breadcrumb-item total-price active"
-                    aria-current="page"
-                  >
-                    Payment
-                  </li>
-                </ol>
-              </nav>
-              <h4 className="title total">Contact Information</h4>
-              <p className="user-details total">
-                Dev Jariwala (devjariwala8444@gmail.com)
-              </p>
-              <h4 className="mb-3">Shipping Address</h4>
+              <h3 className="website-name">Төлбөр</h3>
+              <h4 className="mb-3">Хүргэлтийн хаяг</h4>
               <form
                 onSubmit={formik.handleSubmit}
                 action=""
@@ -249,9 +215,30 @@ const Checkout = () => {
                     onBlur={formik.handleChange("country")}
                   >
                     <option value="" selected disabled>
-                      Select Country
+                     Хот,Аймаг
                     </option>
-                    <option value="India">India</option>
+                    <option value="Howsgol">Хөвсгөл</option>
+                    <option value="Arkhangai">Архангай</option>
+                    <option value="Ulaanbaatar">Улаанбаатар</option>
+<option value="Bayan-Ulgii">Баян-Өлгий</option>
+<option value="Bayankhongor">Баянхонгор</option>
+<option value="Bulgan">Булган</option>
+<option value="Darkhan-Uul">Дархан-Уул</option>
+<option value="Dornod">Дорнод</option>
+<option value="Dornogovi">Дорноговь</option>
+<option value="Dundgovi">Дундговь</option>
+<option value="Govi-Altai">Говь-Алтай</option>
+<option value="Govisumber">Говьсүмбэр</option>
+<option value="Khentii">Хэнтий</option>
+<option value="Khovd">Ховд</option>
+<option value="Orkhon">Орхон</option>
+<option value="Ovorkhangai">Өвөрхангай</option>
+<option value="Selenge">Сэлэнгэ</option>
+<option value="Sukhbaatar">Сүхбаатар</option>
+<option value="Tov">Төв</option>
+<option value="Uvs">Увс</option>
+<option value="Zavkhan">Завхан</option>
+
                   </select>
                   <div className="error ms-2 my-1">
                     {formik.touched.country && formik.errors.country}
@@ -260,7 +247,7 @@ const Checkout = () => {
                 <div className="flex-grow-1">
                   <input
                     type="text"
-                    placeholder="First Name"
+                    placeholder="Овог"
                     className="form-control"
                     name="firstname"
                     value={formik.values.firstname}
@@ -274,7 +261,7 @@ const Checkout = () => {
                 <div className="flex-grow-1">
                   <input
                     type="text"
-                    placeholder="Last Name"
+                    placeholder="Нэр"
                     className="form-control"
                     name="lastname"
                     value={formik.values.lastname}
@@ -288,7 +275,7 @@ const Checkout = () => {
                 <div className="w-100">
                   <input
                     type="text"
-                    placeholder="Address"
+                    placeholder="Дүүрэг,Сум"
                     className="form-control"
                     name="address"
                     value={formik.values.address}
@@ -302,7 +289,7 @@ const Checkout = () => {
                 <div className="w-100">
                   <input
                     type="text"
-                    placeholder="Apartment, Suite ,etc"
+                    placeholder="Хороо,Гудамж"
                     className="form-control"
                     name="other"
                     value={formik.values.other}
@@ -313,7 +300,7 @@ const Checkout = () => {
                 <div className="flex-grow-1">
                   <input
                     type="text"
-                    placeholder="City"
+                    placeholder="Хаяг тоот"
                     className="form-control"
                     name="city"
                     value={formik.values.city}
@@ -334,9 +321,9 @@ const Checkout = () => {
                     onBlur={formik.handleChange("state")}
                   >
                     <option value="" selected disabled>
-                      Select State
+                      Төлөв сонгох
                     </option>
-                    <option value="Gujarat">Gujarat</option>
+                    <option value="Gujarat">Хүргэлт</option>
                   </select>
                   <div className="error ms-2 my-1">
                     {formik.touched.state && formik.errors.state}
@@ -345,7 +332,7 @@ const Checkout = () => {
                 <div className="flex-grow-1">
                   <input
                     type="text"
-                    placeholder="Pincode"
+                    placeholder="Холбоо барих утас"
                     className="form-control"
                     name="pincode"
                     value={formik.values.pincode}
@@ -360,13 +347,13 @@ const Checkout = () => {
                   <div className="d-flex justify-content-between align-items-center">
                     <Link to="/cart" className="text-dark">
                       <BiArrowBack className="me-2" />
-                      Return to Cart
+                      Сагсанд буцах
                     </Link>
                     <Link to="/cart" className="button">
-                      Continue to Shipping
+                      Үргэлжлүүлэнэ худалдана авах
                     </Link>
                     <button className="button" type="submit">
-                      Place Order
+                      Захиалах
                     </button>
                   </div>
                 </div>
@@ -406,7 +393,7 @@ const Checkout = () => {
                       </div>
                       <div className="flex-grow-1">
                         <h5 className="total">
-                          Rs. {item?.price * item?.quantity}
+                          Үнэ : {item?.price * item?.quantity}₮
                         </h5>
                       </div>
                     </div>
@@ -417,18 +404,18 @@ const Checkout = () => {
               <div className="d-flex justify-content-between align-items-center">
                 <p className="total">Subtotal</p>
                 <p className="total-price">
-                  Rs. {totalAmount ? totalAmount : "0"}
+                   {totalAmount ? totalAmount : "0"}₮
                 </p>
               </div>
               <div className="d-flex justify-content-between align-items-center">
                 <p className="mb-0 total">Shipping</p>
-                <p className="mb-0 total-price">Rs. 100</p>
+                <p className="mb-0 total-price">100₮</p>
               </div>
             </div>
             <div className="d-flex justify-content-between align-items-center border-bootom py-4">
               <h4 className="total">Total</h4>
               <h5 className="total-price">
-                Rs. {totalAmount ? totalAmount + 100 : "0"}
+                {totalAmount ? totalAmount + 100 : "0"}₮
               </h5>
             </div>
           </div>

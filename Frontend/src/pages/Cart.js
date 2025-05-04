@@ -81,7 +81,7 @@ const Cart = () => {
               <h4 className="cart-col-4">Total</h4>
             </div>
             {userCartState &&
-              userCartState?.map((item, index) => {
+              userCartState.map((item, index) => {
                 return (
                   <div
                     key={index}
@@ -90,26 +90,31 @@ const Cart = () => {
                     <div className="cart-col-1 gap-15 d-flex align-items-center">
                       <div className="w-25">
                         <img
-                          src={item?.productId.images[0].url}
+                          src={
+                            item?.productId?.images?.[0]?.url ||
+                            "path/to/default/image.jpg"
+                          } // Fallback to a default image
                           className="img-fluid"
                           alt="product image"
                         />
                       </div>
                       <div className="w-75">
-                        <p>{item?.productId.title}</p>
-
+                        <p>{item?.productId?.title || "Unknown Product"}</p>
                         <p className="d-flex gap-3">
                           Color:
                           <ul className="colors ps-0">
                             <li
-                              style={{ backgroundColor: item?.color.title }}
+                              style={{
+                                backgroundColor:
+                                  item?.color?.title || "#ccc", // Fallback color
+                              }}
                             ></li>
                           </ul>
                         </p>
                       </div>
                     </div>
                     <div className="cart-col-2">
-                      <h5 className="price">Rs. {item?.price}</h5>
+                      <h5 className="price">Үнэ : {item?.price || 0}₮</h5>
                     </div>
                     <div className="cart-col-3 d-flex align-items-center gap-15">
                       <div>
@@ -120,7 +125,7 @@ const Cart = () => {
                           min={1}
                           max={10}
                           id={"card" + item?._id}
-                          value={item?.quantity}
+                          value={item?.quantity || 1}
                           onChange={(e) => {
                             setProductupdateDetail({
                               cartItemId: item?._id,
@@ -134,13 +139,13 @@ const Cart = () => {
                           onClick={() => {
                             deleteACartProduct(item?._id);
                           }}
-                          className="text-danger "
+                          className="text-danger"
                         />
                       </div>
                     </div>
                     <div className="cart-col-4">
                       <h5 className="price">
-                        Rs. {item?.quantity * item?.price}
+                         {item?.quantity * item?.price || 0}₮
                       </h5>
                     </div>
                   </div>
@@ -155,12 +160,12 @@ const Cart = () => {
               {(totalAmount !== null || totalAmount !== 0) && (
                 <div className="d-flex flex-column align-items-end">
                   <h4>
-                    SubTotal: Rs.{" "}
-                    {!userCartState?.length ? 0 : totalAmount ? totalAmount : 0}
+                    Нийт Үнэ :{" "}
+                    {!userCartState?.length ? 0 : totalAmount ? totalAmount : 0}₮
                   </h4>
-                  <p>Taxes and shipping calculated at checkout</p>
+                  
                   <Link to="/checkout" className="button">
-                    Checkout
+                    Худалдана авах
                   </Link>
                 </div>
               )}

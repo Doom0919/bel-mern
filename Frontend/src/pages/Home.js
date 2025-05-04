@@ -22,19 +22,34 @@ import ReactStars from "react-rating-stars-component";
 import { addToWishlist } from "../features/products/productSlilce";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import mainBanner from "../images/main-banner-1.jpg";
+import { getuserProductWishlist } from "../features/user/userSlice";
 
 const Home = () => {
-  const [wishlist, setWishlist] = useState([]); // State to track wishlist items
+  const [wishlist, setWishlist] = useState([]); // Initialize wishlist as an empty array
   const blogState = useSelector((state) => state?.blog?.blog);
   const productState = useSelector((state) => state?.product?.product);
+  const wishlistState = useSelector((state) => state?.auth?.wishlist?.wishlist);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   useEffect(() => {
+    getWishlistFromDb();
     getblogs();
     getProducts();
   }, []);
+
+  useEffect(() => {
+    // Update local wishlist state when wishlistState changes
+    if (wishlistState) {
+      setWishlist(wishlistState.map((item) => item._id)); // Extract product IDs from wishlistState
+    }
+  }, [wishlistState]);
+
+  const getWishlistFromDb = () => {
+    dispatch(getuserProductWishlist());
+  };
+
   const getblogs = () => {
     dispatch(getAllBlogs());
   };
@@ -48,7 +63,7 @@ const Home = () => {
       setWishlist(wishlist.filter((item) => item !== id)); // Remove from wishlist
     } else {
       setWishlist([...wishlist, id]); // Add to wishlist
-      dispatch(addToWishlist(id)); // Dispatch action
+      dispatch(addToWishlist(id)); // Dispatch action to update backend
     }
   };
 
@@ -419,7 +434,7 @@ const Home = () => {
                           activeColor="#ffd700"
                         />
 
-                        <p className="price">Rs. {item?.price}</p>
+                        <p className="price">Үнэ : {item?.price}₮</p>
                       </div>
                       <div className="action-bar position-absolute">
                         <div className="d-flex flex-column gap-15">
