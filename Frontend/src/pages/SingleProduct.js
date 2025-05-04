@@ -153,10 +153,10 @@ const SingleProduct = () => {
           <div className="col-6">
             <div className="main-product-details">
               <div className="border-bottom">
-                <h3 className="title">{productState?.title}</h3>
+                <h3 className="title"> Нэр  : {productState?.title}</h3>
               </div>
               <div className="border-bottom py-3">
-                <p className="price"> Rs. {productState?.price}/-</p>
+                <p className="price"> Үнэ {productState?.price}/-</p>
                 <div className="d-flex align-items-center gap-10">
                   <ReactStars
                     count={5}
@@ -166,11 +166,11 @@ const SingleProduct = () => {
                     activeColor="#ffd700"
                   />
                   <p className="mb-0 t-review">
-                    ( {productState?.ratings?.length} Reviews )
+                    ( {productState?.ratings?.length} Шүүмж )
                   </p>
                 </div>
                 <a className="review-btn" href="#review">
-                  Write a Review
+                  Бичих Шүүмж
                 </a>
               </div>
               <div className=" py-3">
@@ -190,10 +190,7 @@ const SingleProduct = () => {
                   <h3 className="product-heading">Tags :</h3>
                   <p className="product-data">{productState?.tags}</p>
                 </div>
-                <div className="d-flex gap-10 align-items-center my-2">
-                  <h3 className="product-heading">Availablity :</h3>
-                  <p className="product-data">In Stock</p>
-                </div>
+               
                 {/* <div className="d-flex gap-10 flex-column mt-2 mb-3">
                   <h3 className="product-heading">Size :</h3>
                   <div className="d-flex flex-wrap gap-15">
@@ -222,7 +219,7 @@ const SingleProduct = () => {
                 )}
 
                 <div className="d-flex align-items-center gap-15 flex-row mt-2 mb-3">
-                  <h3 className="product-heading">Quantity :</h3>
+                  <h3 className="product-heading">Ширхэг :</h3>
                   {alreadyAdded === false && (
                     <div className="">
                       <input
@@ -280,15 +277,15 @@ const SingleProduct = () => {
                   </div>
                 </div>
                 <div className="d-flex gap-10 flex-column  my-3">
-                  <h3 className="product-heading">Shipping & Returns :</h3>
+                  <h3 className="product-heading">Хүргэлт & Буцаалт :</h3>
                   <p className="product-data">
-                    Free shipping and returns available on all orders! <br /> We
-                    ship all India domestic orders within
-                    <b> 5-10 business days!</b>
+                  Бүх захиалгад хүргэлт үнэгүй, буцаах боломжтой! <br /> Бид 
+                  Монголийн бүх дотоодын захиалгыг хүргэнэ
+                  <b> Ажлын 5-7 өдөр!</b>
                   </p>
                 </div>
                 <div className="d-flex gap-10 align-items-center my-3">
-                  <h3 className="product-heading">Product Link:</h3>
+                  <h3 className="product-heading">Барааны холбоос:</h3>
                   <a
                     href="javascript:void(0);"
                     onClick={() => {
@@ -306,7 +303,7 @@ const SingleProduct = () => {
       <Container class1="description-wrapper py-5 home-wrapper-2">
         <div className="row">
           <div className="col-12">
-            <h4>Description</h4>
+            <h4>Тайлбар</h4>
             <div className="bg-white p-3">
               <p
                 dangerouslySetInnerHTML={{ __html: productState?.description }}
@@ -318,11 +315,11 @@ const SingleProduct = () => {
       <Container class1="reviews-wrapper home-wrapper-2">
         <div className="row">
           <div className="col-12">
-            <h3 id="review">Reviews</h3>
+            <h3 id="review">Шүүмж</h3>
             <div className="review-inner-wrapper">
               <div className="review-head d-flex justify-content-between align-items-end">
                 <div>
-                  <h4 className="mb-2">Customer Reviews</h4>
+                  <h4 className="mb-2">Хэргэлэгчийн Шүүмж</h4>
                   <div className="d-flex align-items-center gap-10">
                     <ReactStars
                       count={5}
@@ -339,13 +336,13 @@ const SingleProduct = () => {
                 {orderedProduct && (
                   <div>
                     <a className="text-dark text-decoration-underline" href="">
-                      Write a Review
+                      Шүүмж бичих
                     </a>
                   </div>
                 )}
               </div>
               <div className="review-form py-4">
-                <h4>Write a Review</h4>
+                <h4>Шүүмж бичих</h4>
 
                 <div>
                   <ReactStars
@@ -409,7 +406,7 @@ const SingleProduct = () => {
       <Container class1="popular-wrapper py-5 home-wrapper-2">
         <div className="row">
           <div className="col-12">
-            <h3 className="section-heading">Our Popular Products</h3>
+            <h3 className="section-heading">Эрэлттэй бараа</h3>
           </div>
         </div>
         <div className="row">
