@@ -88,7 +88,7 @@ const Checkout = () => {
       setShippingInfo(values);
       localStorage.setItem("address", JSON.stringify(values));
       setTimeout(() => {
-        checkOutHandler();
+        checkOutHandler(values);
       }, 300);
     },
   });
@@ -120,78 +120,26 @@ const Checkout = () => {
     setCartProductState(items);
   }, []);
 
-  const checkOutHandler = async () => {
-    const res = await loadScript(
-      "https://checkout.razorpay.com/v1/checkout.js"
+  const checkOutHandler = async (shippingInfo) => {
+    dispatch(
+      createAnOrder({
+        totalPrice: totalAmount + 100,
+        totalPriceAfterDiscount: totalAmount + 100,
+        orderItems: cartProductState,
+        paymentInfo: {
+          razorpayOrderId: "none", // Placeholder since payment verification is skipped
+          razorpayPaymentId: "none", // Placeholder
+        },
+        shippingInfo,
+      })
     );
 
-    if (!res) {
-      alert("Razorpay SDK faild to Load");
-      return;
-    }
-    const result = await axios.post(
-      "http://localhost:5000/api/user/order/checkout",
-      { amount: totalAmount + 100 },
-      config
-    );
-
-    if (!result) {
-      alert("Something Went Wrong");
-      return;
-    }
-
-    const { amount, id: order_id, currency } = result.data.order;
-
-    const options = {
-      key: "rzp_test_HSSeDI22muUrLR", // Enter the Key ID generated from the Dashboard
-      amount: amount,
-      currency: currency,
-      name: "Cart's corner",
-      description: "Test Transaction",
-
-      order_id: order_id,
-      handler: async function (response) {
-        const data = {
-          orderCreationId: order_id,
-          razorpayPaymentId: response.razorpay_payment_id,
-          razorpayOrderId: response.razorpay_order_id,
-        };
-
-        const result = await axios.post(
-          "http://localhost:5000/api/user/order/paymentVerification",
-          data,
-          config
-        );
-
-        dispatch(
-          createAnOrder({
-            totalPrice: totalAmount,
-            totalPriceAfterDiscount: totalAmount,
-            orderItems: cartProductState,
-            paymentInfo: result.data,
-            shippingInfo: JSON.parse(localStorage.getItem("address")),
-          })
-        );
-        dispatch(deleteUserCart(config2));
-        localStorage.removeItem("address");
-        dispatch(resetState());
-      },
-      prefill: {
-        name: "Buyka",
-        email: "boldoobuyka@example.com",
-        contact: "80553466",
-      },
-      notes: {
-        address: "MХТС-ийн 229 тоот",
-      },
-      theme: {
-        color: "#61dafb",
-      },
-    };
-
-    const paymentObject = new window.Razorpay(options);
-    paymentObject.open();
+    dispatch(deleteUserCart(config2));
+    localStorage.removeItem("address");
+    dispatch(resetState());
+    navigate("/my-orders"); // Redirect to orders page after checkout
   };
+
   return (
     <>
       <Container class1="checkout-wrapper py-5 home-wrapper-2">
