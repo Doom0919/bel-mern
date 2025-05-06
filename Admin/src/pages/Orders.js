@@ -75,10 +75,7 @@ const Orders = () => {
               Захиалга өгсөн
             </option>
 
-            <option value="Processed">Processed</option>
-            <option value="Shipped">Shipped</option>
-            <option value="Out for Delivery">Out for Delivery</option>
-            <option value="Delivered">Delivered</option>
+            <option value="Processed">Хүргэлт</option>
           </select>
         </>
       ),

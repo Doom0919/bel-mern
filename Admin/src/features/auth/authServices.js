@@ -14,8 +14,8 @@ const login = async (user) => {
   return response.data;
 };
 const getOrders = async (data) => {
-  const response = await axios.get(`${base_url}user/getallorders`, data);
-
+  const response = await axios.get(`${base_url}user/getallorders`, config);
+  console.log("response", response);
   return response.data;
 };
 const getOrder = async (id) => {

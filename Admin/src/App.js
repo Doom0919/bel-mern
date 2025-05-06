@@ -33,7 +33,7 @@ function App() {
           path="/"
           element={
             <OpenRoutes>
-              <Login />
+              <Login/>
             </OpenRoutes>
           }
         />
