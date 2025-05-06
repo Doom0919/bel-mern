@@ -10,7 +10,9 @@ const Layout = () => {
   return (
     <>
       <Header/>
+      <div style={{paddingTop: "150px"}}>
       <Outlet/>
+      </div>
       <Footer />
       <ToastContainer
         position="top-right"
