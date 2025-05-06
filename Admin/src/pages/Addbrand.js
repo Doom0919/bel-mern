@@ -73,8 +73,8 @@ const Addbrand = () => {
 
   return (
     <div>
-      <h3 className="mb-4 title">
-        {getBrandId !== undefined ? "Edit" : "Add"} Brand
+      <h3 className="mb-4 title"> Брэндийн төрөл
+        {getBrandId !== undefined ? " засах" : " нэмэх"} 
       </h3>
       <div>
         <form action="" onSubmit={formik.handleSubmit}>
@@ -84,7 +84,7 @@ const Addbrand = () => {
             onChng={formik.handleChange("title")}
             onBlr={formik.handleBlur("title")}
             val={formik.values.title}
-            label="Enter Brand"
+            label="Брэндийн нэр"
             id="brand"
           />
           <div className="error">

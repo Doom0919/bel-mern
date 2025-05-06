@@ -13,16 +13,16 @@ import CustomModal from "../components/CustomModal";
 
 const columns = [
   {
-    title: "SNo",
+    title: "№",
     dataIndex: "key",
   },
   {
-    title: "Name",
+    title: "Брэндийн нэр",
     dataIndex: "name",
     sorter: (a, b) => a.name.length - b.name.length,
   },
   {
-    title: "Action",
+    title: "Засварлах | Устгах",
     dataIndex: "action",
   },
 ];
@@ -77,7 +77,7 @@ const Brandlist = () => {
   };
   return (
     <div>
-      <h3 className="mb-4 title">Brands</h3>
+      <h3 className="mb-4 title">Брэнд</h3>
       <div>
         <Table columns={columns} dataSource={data1} />
       </div>
@@ -87,7 +87,7 @@ const Brandlist = () => {
         performAction={() => {
           deleteBrand(brandId);
         }}
-        title="Are you sure you want to delete this brand?"
+        title="Та энэ брэндийг устгахдаа итгэлтэй байна уу?"
       />
     </div>
   );

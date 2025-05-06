@@ -7,27 +7,27 @@ import { Link, useLocation } from "react-router-dom";
 import { getaOrder } from "../features/auth/authSlice";
 const columns = [
   {
-    title: "SNo",
+    title: "№",
     dataIndex: "key",
   },
   {
-    title: "Product Name",
+    title: "Бараа бүтээгдэхүүний нэр",
     dataIndex: "name",
   },
   {
-    title: "Brand",
+    title: "Брэнд",
     dataIndex: "brand",
   },
   {
-    title: "Count",
+    title: "Тоо ширхэг",
     dataIndex: "count",
   },
   {
-    title: "Color",
+    title: "Өнгө",
     dataIndex: "color",
   },
   {
-    title: "Amount",
+    title: "Нийт дүн",
     dataIndex: "amount",
   },
 ];

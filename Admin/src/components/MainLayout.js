@@ -32,8 +32,8 @@ const MainLayout = () => {
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className="logo">
           <h2 className="text-white fs-5 text-center py-3 mb-0">
-            <span className="sm-logo">CC</span>
-            <span className="lg-logo">Cart Corner</span>
+            <span className="sm-logo">BA</span>
+            <span className="lg-logo">BEL accessory</span>
           </h2>
         </div>
         <Menu
@@ -57,59 +57,59 @@ const MainLayout = () => {
             {
               key: "customers",
               icon: <AiOutlineUser className="fs-4" />,
-              label: "Customers",
+              label: "Хэрэглэгчид",
             },
             {
               key: "Catalog",
               icon: <AiOutlineShoppingCart className="fs-4" />,
-              label: "Catalog",
+              label: "Ангилал",
               children: [
                 {
                   key: "product",
                   icon: <AiOutlineShoppingCart className="fs-4" />,
-                  label: "Add Product",
+                  label: "Бараа нэмэх",
                 },
                 {
                   key: "list-product",
                   icon: <AiOutlineShoppingCart className="fs-4" />,
-                  label: "Product List",
+                  label: "Бараа бүтээгдэхүүний жагсаалт",
                 },
                 {
                   key: "brand",
                   icon: <SiBrandfolder className="fs-4" />,
-                  label: "Brand",
+                  label: "Брэнд нэмэх",
                 },
                 {
                   key: "list-brand",
                   icon: <SiBrandfolder className="fs-4" />,
-                  label: "Brand List ",
+                  label: "Брэндийн жагсаалт",
                 },
                 {
                   key: "category",
                   icon: <BiCategoryAlt className="fs-4" />,
-                  label: "Category",
+                  label: "Ангилал нэмэх",
                 },
                 {
                   key: "list-category",
                   icon: <BiCategoryAlt className="fs-4" />,
-                  label: "Category List",
+                  label: "Ангиллын жагсаалт",
                 },
                 {
                   key: "color",
                   icon: <AiOutlineBgColors className="fs-4" />,
-                  label: "Color",
+                  label: "Өнгө нэмэх",
                 },
                 {
                   key: "list-color",
                   icon: <AiOutlineBgColors className="fs-4" />,
-                  label: "Color List",
+                  label: "Өнгөний жагсаалт",
                 },
               ],
             },
             {
               key: "orders",
               icon: <FaClipboardList className="fs-4" />,
-              label: "Orders",
+              label: "Захиалгууд",
             },
             // {
             //   key: "marketing",
@@ -155,15 +155,15 @@ const MainLayout = () => {
             //     },
             //   ],
             // },
-            {
-              key: "enquiries",
-              icon: <FaClipboardList className="fs-4" />,
-              label: "Enquiries",
-            },
+            // {
+            //   key: "enquiries",
+            //   icon: <FaClipboardList className="fs-4" />,
+            //   label: "Enquiries",
+            // },
             {
               key: "signout",
               icon: <AiOutlineLogout className="fs-4" />,
-              label: "Sign Out",
+              label: "Гарах",
             },
           ]}
         />
@@ -199,10 +199,10 @@ const MainLayout = () => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false" 
               >
-                <h5 className="mb-0">BEL ADMIN</h5>
+                <h5 className="mb-0">BEL Admin</h5>
                 <p className="mb-0">enhjin0830@gmail.com</p>
               </div>
-              <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              {/* <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <li>
                   <Link
                     className="dropdown-item py-1 mb-1"
@@ -221,7 +221,7 @@ const MainLayout = () => {
                     Signout
                   </Link>
                 </li>
-              </div>
+              </div> */}
             </div>
           </div>
         </Header>

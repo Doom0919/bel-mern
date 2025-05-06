@@ -9,36 +9,36 @@ import { delImg } from "../features/upload/uploadSlice";
 import CustomModal from "../components/CustomModal";
 const columns = [
   {
-    title: "SNo",
+    title: "№",
     dataIndex: "key",
   },
   {
-    title: "Title",
+    title: "Бараа бүтээгдэхүүний нэр",
     dataIndex: "title",
     sorter: (a, b) => a.title.length - b.title.length,
   },
   {
-    title: "Brand",
+    title: "Брэнд",
     dataIndex: "brand",
     sorter: (a, b) => a.brand.length - b.brand.length,
   },
   {
-    title: "Category",
+    title: "Ангилал",
     dataIndex: "category",
     sorter: (a, b) => a.category.length - b.category.length,
   },
 
   {
-    title: "Quantity",
+    title: "Тоо ширхэг",
     dataIndex: "quantity",
   },
   {
-    title: "Price",
+    title: "Үнэ",
     dataIndex: "price",
     sorter: (a, b) => a.price - b.price,
   },
   {
-    title: "Action",
+    title: "Үйлдэл",
     dataIndex: "action",
   },
 ];
@@ -99,7 +99,7 @@ const Productlist = () => {
   console.log(data1);
   return (
     <div>
-      <h3 className="mb-4 title">Products</h3>
+      <h3 className="mb-4 title">Бараа бүтээгдэхүүний жагсаалт</h3>
       <div>
         <Table columns={columns} dataSource={data1} />
       </div>
@@ -109,7 +109,7 @@ const Productlist = () => {
         performAction={() => {
           deleteProduct(productId);
         }}
-        title="Are you sure you want to delete this Product?"
+        title="Та энэ бараа бүртээгдэхүүнийг устгахдаа итгэлтэй байна уу?"
       />
     </div>
   );

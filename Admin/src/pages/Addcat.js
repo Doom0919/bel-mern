@@ -69,14 +69,14 @@ const Addcat = () => {
   });
   return (
     <div>
-      <h3 className="mb-4  title">
-        {getPCatId !== undefined ? "Edit" : "Add"} Category
+      <h3 className="mb-4  title"> Ангилал
+        {getPCatId !== undefined ? " засах" : " нэмэх"} 
       </h3>
       <div>
         <form action="" onSubmit={formik.handleSubmit}>
           <CustomInput
             type="text"
-            label="Enter Product Category"
+            label="Бараа бүтээгдэхүүний ангилал"
             onChng={formik.handleChange("title")}
             onBlr={formik.handleBlur("title")}
             val={formik.values.title}

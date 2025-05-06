@@ -189,8 +189,8 @@ const Addproduct = () => {
 
   return (
     <div>
-      <h3 className="mb-4 title">
-        {getProductId !== undefined ? "Edit" : "Add"} Product
+      <h3 className="mb-4 title">Бараа бүтээгдэхүүн
+        {getProductId !== undefined ? " засах" : " нэмэх"} 
       </h3>
       <div>
         <form
@@ -199,7 +199,7 @@ const Addproduct = () => {
         >
           <CustomInput
             type="text"
-            label="Enter Product Title"
+            label="Бараа бүтээгдэхүүний нэр"
             name="title"
             onChng={formik.handleChange("title")}
             onBlr={formik.handleBlur("title")}
@@ -221,7 +221,7 @@ const Addproduct = () => {
           </div>
           <CustomInput
             type="number"
-            label="Enter Product Price"
+            label="Бараа бүтээгдэхүүний үнэ оруулах"
             name="price"
             onChng={formik.handleChange("price")}
             onBlr={formik.handleBlur("price")}
@@ -238,7 +238,7 @@ const Addproduct = () => {
             className="form-control py-3 mb-3"
             id=""
           >
-            <option value="">Select Brand</option>
+            <option value="">Брэнд сонгох</option>
             {brandState.map((i, j) => {
               return (
                 <option key={j} value={i.title}>
@@ -258,7 +258,7 @@ const Addproduct = () => {
             className="form-control py-3 mb-3"
             id=""
           >
-            <option value="">Select Category</option>
+            <option value="">Ангилал сонгох</option>
             {catState.map((i, j) => {
               return (
                 <option key={j} value={i.title}>
@@ -279,7 +279,7 @@ const Addproduct = () => {
             id=""
           >
             <option value="" disabled>
-              Select Category
+              Ерөнхий ангилал сонгох
             </option>
             <option value="featured">Онцлох</option>
             <option value="special">Тусгай</option>
@@ -293,7 +293,7 @@ const Addproduct = () => {
             mode="multiple"
             allowClear
             className="w-100"
-            placeholder="Select colors"
+            placeholder="Өнгө сонгох"
             defaultValue={productcolor || color}
             onChange={(i) => handleColors(i)}
             options={coloropt}
@@ -303,7 +303,7 @@ const Addproduct = () => {
           </div>
           <CustomInput
             type="number"
-            label="Enter Product Quantity"
+            label="Бараа бүтээгдэхүүний тоо"
             name="quantity"
             onChng={formik.handleChange("quantity")}
             onBlr={formik.handleBlur("quantity")}
@@ -321,7 +321,7 @@ const Addproduct = () => {
                   <div {...getRootProps()}>
                     <input {...getInputProps()} />
                     <p>
-                      Drag 'n' drop some files here, or click to select files
+                      Зургийн файлаа сонгож оруулна уу?
                     </p>
                   </div>
                 </section>
@@ -360,7 +360,7 @@ const Addproduct = () => {
             className="btn btn-success border-0 rounded-3 my-5"
             type="submit"
           >
-            {getProductId !== undefined ? "Edit" : "Add"} Product
+          Бараа {getProductId !== undefined ? "засах" : "нэмэх"} 
           </button>
         </form>
       </div>

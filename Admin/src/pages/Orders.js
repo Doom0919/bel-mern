@@ -7,28 +7,28 @@ import { Link } from "react-router-dom";
 import { getOrders, updateAOrder } from "../features/auth/authSlice";
 const columns = [
   {
-    title: "SNo",
+    title: "№",
     dataIndex: "key",
   },
   {
-    title: "Name",
+    title: "Хэрэглэгчийн нэр",
     dataIndex: "name",
   },
   {
-    title: "Product",
+    title: "Бараа бүтээгдэхүүн",
     dataIndex: "product",
   },
   {
-    title: "Amount",
+    title: "Нийт дүн",
     dataIndex: "amount",
   },
   {
-    title: "Date",
+    title: "Захиалга өгсөн огноо",
     dataIndex: "date",
   },
 
   {
-    title: "Action",
+    title: "Үйлдэл",
     dataIndex: "action",
   },
 ];
@@ -72,7 +72,7 @@ const Orders = () => {
             id=""
           >
             <option value="Ordered" disabled selected>
-              Ordered
+              Захиалга өгсөн
             </option>
 
             <option value="Processed">Processed</option>
@@ -90,7 +90,7 @@ const Orders = () => {
   };
   return (
     <div>
-      <h3 className="mb-4 title">Orders</h3>
+      <h3 className="mb-4 title">Захиалгууд</h3>
       <div>{<Table columns={columns} dataSource={data1} />}</div>
     </div>
   );

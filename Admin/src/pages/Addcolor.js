@@ -70,13 +70,13 @@ const Addcolor = () => {
   return (
     <div>
       <h3 className="mb-4 title">
-        {getColorId !== undefined ? "Edit" : "Add"} Color
+        Өнгө {getColorId !== undefined ? " засах" : " нэмэх"} 
       </h3>
       <div>
         <form action="" onSubmit={formik.handleSubmit}>
           <CustomInput
             type="color"
-            label="Enter Product Color"
+            label="Бүтээгдэхүүний өнгө"
             onChng={formik.handleChange("title")}
             onBlr={formik.handleBlur("title")}
             val={formik.values.title}

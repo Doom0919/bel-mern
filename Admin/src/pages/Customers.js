@@ -4,20 +4,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUsers } from "../features/cutomers/customerSlice";
 const columns = [
   {
-    title: "SNo",
+    title: "№",
     dataIndex: "key",
   },
   {
-    title: "Name",
+    title: "Хэрэглэгчийн нэр",
     dataIndex: "name",
     sorter: (a, b) => a.name.length - b.name.length,
   },
   {
-    title: "Email",
+    title: "Email хаяг",
     dataIndex: "email",
   },
   {
-    title: "Mobile",
+    title: "Утасны дугаар",
     dataIndex: "mobile",
   },
 ];
@@ -42,7 +42,7 @@ const Customers = () => {
 
   return (
     <div>
-      <h3 className="mb-4 title">Customers</h3>
+      <h3 className="mb-4 title">Хэрэглэгчид</h3>
       <div>
         <Table columns={columns} dataSource={data1} />
       </div>

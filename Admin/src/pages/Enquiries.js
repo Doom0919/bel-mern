@@ -14,28 +14,28 @@ import CustomModal from "../components/CustomModal";
 
 const columns = [
   {
-    title: "SNo",
+    title: "№",
     dataIndex: "key",
   },
   {
-    title: "Name",
+    title: "Хэрэглэгчийн нэр",
     dataIndex: "name",
   },
   {
-    title: "Email",
+    title: "Email хаяг",
     dataIndex: "email",
   },
   {
-    title: "Mobile",
+    title: "Утасны дугаар",
     dataIndex: "mobile",
   },
   {
-    title: "Staus",
+    title: "Төлөв",
     dataIndex: "status",
   },
 
   {
-    title: "Action",
+    title: "Үйлдэл",
     dataIndex: "action",
   },
 ];

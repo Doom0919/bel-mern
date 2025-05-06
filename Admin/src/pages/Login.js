@@ -38,22 +38,22 @@ const Login = () => {
     }
   }, [user, isError, isSuccess, isLoading]);
   return (
-    <div className="py-5" style={{ background: "#ffd333", minHeight: "100vh" }}>
+    <div className="py-5" style={{ background: "#1677ff", minHeight: "100vh" }}>
       <br />
       <br />
       <br />
       <br />
       <br />
       <div className="my-5 w-25 bg-white rounded-3 mx-auto p-4">
-        <h3 className="text-center title">Login</h3>
-        <p className="text-center">Login to your account to continue.</p>
+        <h3 className="text-center title">Нэвтрэх</h3>
+        <p className="text-center">Үргэлжлүүлэхийн тулд бүртгэлээрээ нэвтэрнэ үү.</p>
         <div className="error text-center">
-          {message.message == "Rejected" ? "You are not an Admin" : ""}
+          {message.message == "Rejected" ? "Та админ биш байна!" : ""}
         </div>
         <form action="" onSubmit={formik.handleSubmit}>
           <CustomInput
             type="text"
-            label="Email Address"
+            label="Email хаяг "
             id="email"
             name="email"
             onChng={formik.handleChange("email")}
@@ -65,7 +65,7 @@ const Login = () => {
           </div>
           <CustomInput
             type="password"
-            label="Password"
+            label="Нууц үг"
             id="pass"
             name="password"
             onChng={formik.handleChange("password")}
@@ -78,10 +78,10 @@ const Login = () => {
           <div className="mb-3 text-end"></div>
           <button
             className="border-0 px-3 py-2 text-white fw-bold w-100 text-center text-decoration-none fs-5"
-            style={{ background: "#ffd333" }}
+            style={{ background: "#1677ff" }}
             type="submit"
           >
-            Login
+            Нэвтрэх
           </button>
         </form>
       </div>

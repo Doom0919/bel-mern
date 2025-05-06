@@ -9,15 +9,15 @@ import CustomModal from "../components/CustomModal";
 
 const columns = [
   {
-    title: "SNo",
+    title: "№",
     dataIndex: "key",
   },
   {
-    title: "Color",
+    title: "Өнгө",
     dataIndex: "Color",
   },
   {
-    title: "Action",
+    title: "Үйлдэл",
     dataIndex: "action",
   },
 ];
@@ -85,7 +85,7 @@ const Colorlist = () => {
   };
   return (
     <div>
-      <h3 className="mb-4 title">Colors</h3>
+      <h3 className="mb-4 title">Өнгөнүүд</h3>
       <div>
         <Table columns={columns} dataSource={data1} />
       </div>
@@ -95,7 +95,7 @@ const Colorlist = () => {
         performAction={() => {
           deleteColor(colorId);
         }}
-        title="Are you sure you want to delete this color?"
+        title="Та энэ өнгийг устгахдаа итгэлтэй байна уу?"
       />
     </div>
   );
