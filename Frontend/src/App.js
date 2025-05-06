@@ -25,12 +25,13 @@ import { PrivateRoutes } from "./routing/PrivateRoutes";
 import { OpenRoutes } from "./routing/OpenRoutes";
 import Orders from "./pages/Orders";
 import Profile from "./pages/Profile";
-
+import Header  from "./components/Header";
 function App() {
   return (
     <>
+    
       <Router>
-        <Routes>
+        <Routes>  
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />

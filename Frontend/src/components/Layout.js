@@ -9,8 +9,8 @@ import "react-toastify/dist/ReactToastify.css";
 const Layout = () => {
   return (
     <>
-      <Header />
-      <Outlet />
+      <Header/>
+      <Outlet/>
       <Footer />
       <ToastContainer
         position="top-right"

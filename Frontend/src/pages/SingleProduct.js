@@ -320,7 +320,7 @@ const SingleProduct = () => {
             <div className="review-inner-wrapper">
               <div className="review-head d-flex justify-content-between align-items-end">
                 <div>
-                  <h4 className="mb-2">Хэргэлэгчийн Шүүмж</h4>
+                  <h4 className="mb-2">Хэрэглэгчийн шүүмж</h4>
                   <div className="d-flex align-items-center gap-10">
                     <ReactStars
                       count={5}

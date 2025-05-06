@@ -297,9 +297,7 @@ const Checkout = () => {
                       <BiArrowBack className="me-2" />
                       Сагсанд буцах
                     </Link>
-                    <Link to="/cart" className="button">
-                      Үргэлжлүүлэнэ худалдана авах
-                    </Link>
+                      
                     <button className="button" type="submit">
                       Захиалах
                     </button>

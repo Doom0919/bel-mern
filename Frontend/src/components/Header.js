@@ -72,7 +72,8 @@ const Header = () => {
     width: '100%',
     margin: '0',
     backgroundColor: '#14B6E7',
-  
+    position: 'fixed',
+    zIndex: '9999',
   }}
 >
   <Link className="text-white" to="/">

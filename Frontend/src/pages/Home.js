@@ -67,7 +67,7 @@ const Home = () => {
     : (productState || []);
   return (
     <>
-      <Container class1="home-wrapper-1 py-5">
+      <Container class1="home-wrapper-1 py-5" >
         <div className="row">
           <div className="col-6">
             <div className="main-banner position-relative">
